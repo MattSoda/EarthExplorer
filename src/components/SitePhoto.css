@@ -1,0 +1,10 @@
+.site-photo{position:relative;isolation:isolate;overflow:hidden;margin:0;width:100%;aspect-ratio:16/9;border-radius:7px;background:linear-gradient(135deg,#19365a,#0c1d34);color:#f3f7ff}
+.site-photo--feature{aspect-ratio:3.4/1;margin-bottom:17px}
+.site-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.site-photo:hover img{transform:scale(1.035)}
+.site-photo figcaption{position:absolute;inset:auto 0 0;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:18px 10px 8px;background:linear-gradient(transparent,rgba(3,12,25,.82));font-size:10px;line-height:1.3}
+.site-photo figcaption span{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site-photo figcaption a{flex:none;color:#d8e8ff;font-size:9px}
+.analog-card .site-photo{margin:8px 0 10px}
+.site-photo--thumbnail{aspect-ratio:16/9}
+@media(max-width:620px){.site-photo--feature{aspect-ratio:2.4/1}}

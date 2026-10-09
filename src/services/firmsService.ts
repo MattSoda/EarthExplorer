@@ -1,0 +1,2 @@
+export type FireDetection={latitude:number;longitude:number;acq_date:string;acq_time:string;confidence:string;source:string};
+export async function fetchFirms(lat:number,lon:number,days=1,radiusKm=100):Promise<FireDetection[]>{const r=await fetch(`/api/firms?lat=${lat}&lon=${lon}&days=${days}&radius_km=${radiusKm}`);if(!r.ok)throw new Error(r.status===503?'FIRMS server key not configured':`FIRMS request failed (${r.status})`);const data=await r.json() as {detections:FireDetection[]};return data.detections;}

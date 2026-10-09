@@ -1,0 +1,172 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.layout {
+  align-items: start;
+  min-height: calc(100vh - 79px);
+}
+
+.sidebar {
+  position: sticky;
+  top: 79px;
+  align-self: start;
+  height: calc(100vh - 79px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bottom {
+  margin-top: auto;
+}
+
+main {
+  min-width: 0;
+}
+
+.filter-row {
+  flex-wrap: wrap;
+}
+
+.filter-row .primary {
+  flex: 0 0 auto;
+}
+
+.criterion-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 16px;
+  padding-top: 14px;
+  border-top: 1px solid #1c3a63;
+}
+
+.criterion-row > .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.criterion-row .check {
+  min-height: 34px;
+}
+
+.advanced-weights {
+  margin-top: 12px;
+  border-top: 1px solid #1c3a63;
+  padding-top: 10px;
+}
+
+.advanced-weights summary {
+  width: fit-content;
+  color: #9cb4d5;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.weight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.weight-grid label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #d2e0f6;
+  font-size: 12px;
+}
+
+.weight-grid input {
+  width: 64px;
+}
+
+.ranked-panel {
+  scroll-margin-top: 96px;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #8db7ff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .header {
+    min-height: 68px;
+  }
+
+  .layout {
+    min-height: calc(100vh - 68px);
+  }
+
+  .sidebar {
+    top: 81px;
+    height: auto;
+    min-height: 0;
+    padding: 6px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: 0;
+    border-bottom: 1px solid #1c3a63;
+    z-index: 900;
+    scrollbar-width: thin;
+  }
+
+  .sidebar nav {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .sidebar nav a {
+    white-space: nowrap;
+  }
+
+  .criterion-row,
+  .weight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-row > div {
+    min-width: min(100%, 160px);
+  }
+
+  .filter-row .grow {
+    flex: 1 1 100%;
+  }
+
+  .filter-row .primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .criterion-row,
+  .weight-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-row > div:first-child {
+    min-width: 100%;
+  }
+}
