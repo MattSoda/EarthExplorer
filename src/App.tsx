@@ -269,18 +269,23 @@ function Dashboard({ view }: { view: "home" | "explore" | "compare" }) {
             <p>{selected.description}</p>
             <div className="metrics">
               <div>
-                <b>{current.score === null ? "N/A" : `${current.score}%`}</b>
-                <small>Field suitability index</small>
+                <b>
+                  {world}: {current.score === null ? "N/A" : `${current.score}%`}
+                </b>
+                <small>{focus} fit</small>
               </div>
               <div>
                 <b>{current.coverage}%</b>
                 <small>Evidence coverage</small>
               </div>
               <div>
-                <b>{selected.worlds.join(" / ")}</b>
-                <small>Relevant worlds</small>
+                <b>{enabled.length}</b>
+                <small>Criteria included</small>
               </div>
             </div>
+            <p className="muted small">
+              Calculated for {world} · {focus} using {enabled.length > 0 ? enabled.join(", ") : "no selected criteria"}. Scores are qualitative field-work estimates, not validated planetary similarity.
+            </p>
             <h4>Why this candidate?</h4>
             {Object.entries(current.parts).map(([k, v]) => (
               <p className="evidence" key={k}>
